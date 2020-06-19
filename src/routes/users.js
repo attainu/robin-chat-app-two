@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const {sendWelcomeMail,sendGoodbyMail} = require('../emails/account');
 // Load User model
 const User = require('../models/User');
-const { forwardAuthenticated } = require('../middleware/auth');
+const { forwardAuthenticated ,ensureAuthenticated} = require('../middleware/auth');
 
 // Login Page
 router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
@@ -66,6 +67,7 @@ router.post('/signup', (req, res) => {
                   'success_msg',
                   'You are now registered and can log in'
                 );
+                sendWelcomeMail(user.email,user.name)
                 res.redirect('/users/login');
               })
               .catch(err => console.log(err));
@@ -85,6 +87,9 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
+//Read
+router.get('/read',ensureAuthenticated,(req,res) => res.render('read',{user:req.user}))
+
 // Logout
 router.get('/logout',(req, res) => {
     req.logout();
@@ -96,6 +101,7 @@ router.get('/logout',(req, res) => {
 router.get('/delete',(req,res)=>{
    req.user.remove();
    req.flash('success_msg', 'You have successfully deleted your account. Signup a new account')
+   sendGoodbyMail(req.user.email,req.user.name)
    res.redirect('/users/signup');
   //  res.send(req.user)
    
@@ -103,9 +109,9 @@ router.get('/delete',(req,res)=>{
  })
 
 //Update
-router.get('/update', forwardAuthenticated, (req, res) => res.render('update'));
+router.get('/update',ensureAuthenticated, (req, res) => res.render('update',{user:req.user}));
 
-router.patch('/update',(req,res)=>{
+router.post('/update',async(req,res)=>{
   const updates = Object.keys(req.body)
   const allowedUpdate = ['name','email','password']
   const isValidOperation = updates.every((update)=>allowedUpdate.includes(update))
@@ -115,9 +121,9 @@ router.patch('/update',(req,res)=>{
   }
   try{
       
-      updates.forEach((update)=>req.user[update]=req.body[update])
+      await updates.forEach((update)=>req.user[update]=req.body[update])
       req.user.save()
-      // res.send(req.user)
+      res.redirect('/users/read')
   }catch(e){
       res.status(400).send(e)
   }

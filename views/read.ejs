@@ -1,0 +1,27 @@
+
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+          <i></i> Your details
+        </h1>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= user._id %></td>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.date %></td>
+              </tr>
+            </tbody>
+          </table>
+        
+        <a href="/dashboard" class="btn btn-info">Go to Dashboard</a>
+      </div>
+  
