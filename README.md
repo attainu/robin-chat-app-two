@@ -6,13 +6,17 @@ share their location (*and pictures, videos, documents - To Be Added Later!)
 
 ---
 
-# Project Collaborators/Members
+# Project Authors
 
 Check Us Out
 
 [Pijush Konar](https://github.com/pijush-konar-au7) & [Saidul Mondal](https://github.com/saidul-mondal-au7)
 
 ---
+
+## Project Screenshots
+
+![](project.png)
 
 ## Requirements
 
@@ -22,7 +26,7 @@ For development, you will only need Node.js and a node global package, Yarn, ins
 - #### Node installation on Windows
 
   Just go on [official Node.js website](https://nodejs.org/) and download the installer.
-Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
+  Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
 
 - #### Node installation on Ubuntu
 
@@ -53,7 +57,8 @@ If the installation was successful, you should be able to run the following comm
 
 ---
 
-## Configure app
+
+## Configuration
 
 Open `robin-chat-app-two\config` then create and dev.env file and edit it with your infos. You will need:
 
@@ -63,7 +68,9 @@ Open `robin-chat-app-two\config` then create and dev.env file and edit it with y
 - CLUSTER=`@Your MongoDB Cluster Address`
 - SENDGRID_API_KEY=`Enter Your SendGrid Email API`
 
-## Running the project
+
+
+## Running The Project
 
 ```sh
     $ npm run dev
