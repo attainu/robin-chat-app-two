@@ -18,9 +18,13 @@ Check Us Out
 
 ![](project.png)
 
+---
+
 ## Requirements
 
 For development, you will only need Node.js and a node global package, Yarn, installed in your environement.
+
+---
 
 ### Node
 - #### Node installation on Windows
@@ -47,6 +51,7 @@ If the installation was successful, you should be able to run the following comm
     $ npm -v
     6.14.4
 ```
+---
 
 ## Project Installation
   After installing node, this project will need many NPM Packages, so just run the following command to install all.
@@ -56,7 +61,6 @@ If the installation was successful, you should be able to run the following comm
     $ npm i
 
 ---
-
 
 ## Configuration
 
@@ -68,7 +72,7 @@ Open `robin-chat-app-two\config` then create and dev.env file and edit it with y
 - CLUSTER=`@Your MongoDB Cluster Address`
 - SENDGRID_API_KEY=`Enter Your SendGrid Email API`
 
-
+---
 
 ## Running The Project
 
