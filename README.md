@@ -1,8 +1,8 @@
 # Robin - Chat App
 
 The objective of this website/project is to provide a platform to all who can just visit and log in to our website 
-and they can create their own chat room where they can talk to their friend anywhere from the world, 
-share their location (*and pictures, videos, documents - To Be Added Later!)
+and they can create their own chat room where they can talk to their friend anywhere from the world, share their location 
+(*and pictures, videos, documents - To Be Added Later!)
 
 ---
 
@@ -17,6 +17,8 @@ Check Us Out
 ## Project Screenshots
 
 ![](project.png)
+
+More Screenshots To Be Added
 
 ---
 
