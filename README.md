@@ -1,8 +1,3 @@
-# robin-chat-app-two
-
-To Start Use 
-npm run dev
-
 # Robin - Chat App
 
 The objective of this website/project is to provide a platform to all who can just visit and log in to our website 
@@ -13,7 +8,9 @@ share their location (*and pictures, videos, documents - To Be Added Later!)
 
 # Project Collaborators/Members
 
-Pijush Konar(https://github.com/pijush-konar-au7) & Saidul Mondal
+Check Us Out
+
+[Pijush Konar](https://github.com/pijush-konar-au7) & [Saidul Mondal](https://github.com/saidul-mondal-au7)
 
 ---
 
@@ -38,6 +35,7 @@ Also, be sure to have `git` available in your PATH, `npm` might need it (You can
   You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
 
 If the installation was successful, you should be able to run the following command.
+
 ```
     $ node -v
     v12.16.2
@@ -46,19 +44,14 @@ If the installation was successful, you should be able to run the following comm
     6.14.4
 ```
 
-###
-### Yarn installation
-  After installing node, this project will need yarn too, so just run the following command.
-
-      $ npm i
-
----
-
-## Install
+## Project Installation
+  After installing node, this project will need many NPM Packages, so just run the following command to install all.
 
     $ git clone Here(https://github.com/attainu/robin-chat-app-two)
     $ cd robin-chat-app-two
     $ npm i
+
+---
 
 ## Configure app
 
