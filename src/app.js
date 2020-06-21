@@ -15,10 +15,7 @@ const db = require('./db/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true ,useUnifiedTopology: true}
-  )
+  .connect(db,{ useNewUrlParser: true , useCreateIndex:true, useUnifiedTopology: true})
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
@@ -33,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
     secret: 'secret',
+    cookie:{_expires : 60000000},
     resave: true,
     saveUninitialized: true
   })
@@ -52,6 +50,9 @@ app.use(function(req, res, next) {
   res.locals.error = req.flash('error');
   next();
 });
+
+//Public
+app.use( express.static( "public" ) );
 
 // Routes
 app.use('/', require('./routes/index.js'));

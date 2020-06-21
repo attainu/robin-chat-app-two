@@ -6,8 +6,8 @@ const sendWelcomeMail = (email,name)=>{
     sgMail.send({
         to:email,
         from:'mondalsaidul3232@gmail.com',
-        subject:'Thanks for joining in!',
-        text:`Welcome to this chat app ${name}.Create your own chat room and invite your friends.`
+        subject:'Thanks For Joining In!',
+        text:`Welcome ${name} to AttainU Chat App. Here you can create your own chat room, where you can chat with your friends and invite your friends to join as well. Happy Chatting! AttainU Chat App Team`
     })
 }
 
@@ -15,8 +15,8 @@ const sendGoodbyMail = (email,name)=>{
     sgMail.send({
         to:email,
         from:'mondalsaidul3232@gmail.com',
-        subject:'Very sad moments!',
-        text:`We were very happy togather ${name}.Let me know what made you to leave.`
+        subject:'Sad To See You Go!',
+        text:`We were very happy togather ${name}. We are sad to see you go, please let us know what made you to leave. See You Soon! AttainU Chat App Team :)`
     })
 }
 
@@ -25,10 +25,3 @@ module.exports = {
     sendGoodbyMail
 
 }
-
-// sgMail.send({
-//     to:'bibiasem007@gmail.com',
-//     from:'mondalsaidul3232@gmail.com',
-//     subject:'This is my first creation!',
-//     text:'I hope this one acctually get to you'
-// })
