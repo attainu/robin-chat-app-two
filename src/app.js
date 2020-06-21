@@ -4,20 +4,20 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
-
+require('./db/keys')
 const app = express();
 
 // Passport Config
 require('./middleware/passport')(passport);
 
 // DB Config
-const db = require('./db/keys').mongoURI;
+// const db = require('./db/keys').mongoURI;
 
-// Connect to MongoDB
-mongoose
-  .connect(db,{ useNewUrlParser: true , useCreateIndex:true, useUnifiedTopology: true})
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+// // Connect to MongoDB
+// mongoose
+//   .connect(db,{ useNewUrlParser: true , useCreateIndex:true, useUnifiedTopology: true})
+//   .then(() => console.log('MongoDB Connected'))
+//   .catch(err => console.log(err));
 
 // EJS
 app.use(expressLayouts);
@@ -58,8 +58,4 @@ app.use( express.static( "public" ) );
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 
-const port = process.env.PORT;
-
-app.listen(port, console.log(`Server started on port ${port}`));
-
-//npm run dev
+module.exports = app

@@ -6,16 +6,8 @@ const {sendWelcomeMail,sendGoodbyMail} = require('../emails/account');
 
 const userControll = {
     signup: async(req,res) => {
-        const { name, email, mobile, avatar, password, password2 } = req.body;
+        const { name, email, mobile, password, password2 } = req.body;
         let errors = [];
-      
-        if (!name || !email || !mobile || !password || !password2) {
-          errors.push({ msg: 'Please enter all fields' });
-        }
-      
-        if (mobile < 10) {
-          errors.push({ msg: 'Enter Your 10 Digit Mobile Number' });
-        }
       
         if (password != password2) {
           errors.push({ msg: 'Passwords do not match' });
@@ -26,59 +18,35 @@ const userControll = {
         }
       
         if (errors.length > 0) {
-          res.render('signup', {
-            errors,
-            name,
-            email,
-            mobile,
-            password,
-            password2
-          });
+          res.render('signup', { errors, name, email, mobile, password, password2});
         } else {
-          User.findOne({ email: email }).then(user => {
+          const user = await User.findOne({email: email})
+
+          try {
             if (user) {
               errors.push({ msg: 'Email already exists' });
-              res.render('signup', {
-                errors,
-                name,
-                email,
-                mobile,
-                password,
-                password2
-              });
+              res.render('signup', {errors, name, email, mobile, password, password2});
+
             } else {
-              const newUser = new User({
-                name,
-                email,
-                mobile,
-                avatar,
-                password
-              });
-      
+              const newUser = new User({ name, email, mobile, password })
               bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(newUser.password, salt, (err, hash) => {
+                  bcrypt.hash(newUser.password, salt, async(err, hash) => {
                   if (err) throw err;
                   newUser.password = hash;
-                  newUser
-                    .save()
-                    .then(user => {
-                      req.flash(
-                        'success_msg',
-                        'You are now registered and can log in'
-                      );
-                      sendWelcomeMail(user.email,user.name)
-                      res.redirect('/users/login');
-                    })
-                    .catch(err => console.log(err));
-                });
-                
+
+                  await newUser.save()
+                  req.flash('success_msg', 'You are now registered and can log in');
+                  sendWelcomeMail(newUser.email, newUser.name)
+                  res.redirect('/users/login');
+                })
               });
             }
-          });
-        }
+          } catch(e) {
+            res.status(400).send(e)
+          }
+        }  
     },
     login: async(req,res,next) => {
-
         try {
             await passport.authenticate('local', {
                 successRedirect: '/dashboard',
@@ -90,7 +58,18 @@ const userControll = {
         }
        
     },
-    read: (req,res) => {},
+    readImage: async(req,res) => {
+      try{
+        const user = await req.user
+        if(!user || !user.avatar){
+            throw new Error()
+        }
+        res.set('Content-Type','image/png')
+        res.send(user.avatar)
+      }catch(e){
+        res.sendStatus(404).send()
+      }
+    },
     logout: async(req,res) => {
         try {
             await req.logout();
@@ -128,6 +107,12 @@ const userControll = {
             res.status(400).send(e)
         }
        
+    },
+
+    deleteImage: async(req,res) => {
+      req.user.avatar = undefined
+      await req.user.save()
+      res.redirect('/dashboard')
     }
 }
 

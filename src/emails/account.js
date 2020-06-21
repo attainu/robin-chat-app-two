@@ -23,5 +23,4 @@ const sendGoodbyMail = (email,name)=>{
 module.exports = {
     sendWelcomeMail,
     sendGoodbyMail
-
 }

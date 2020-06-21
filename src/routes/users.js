@@ -4,6 +4,7 @@ const sharp = require('sharp')
 const router = express.Router();
 const userController = require('../controller/controllers')
 const { forwardAuthenticated ,ensureAuthenticated} = require('../middleware/auth');
+const { authenticate } = require('passport');
 
 // Login Page
 router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
@@ -16,6 +17,9 @@ router.post('/signup', userController.signup);
 
 // Login
 router.post('/login', userController.login);
+
+// Image
+router.get('/image', userController.readImage);
 
 //Read
 router.get('/read',ensureAuthenticated,(req,res) => res.render('read',{user:req.user}))
@@ -36,6 +40,8 @@ router.post('/update', userController.update)
 
 //Image upload
 
+router.get('/avatar',ensureAuthenticated,(req,res) => res.render('avatar',{user:req.user}))
+
 const upload = multer({
     //dest:'avatars',
     limits:{
@@ -49,35 +55,18 @@ const upload = multer({
     }
 })
 
-
-router.post('/avatar',upload.single('avatar'),async(req,res)=>{
+router.post('/avatar', upload.single('avatar'),async(req,res)=>{
     const buffer = await sharp(req.file.buffer).resize({width:250,height:250}).png().toBuffer()
 
     req.user.avatar = buffer
     await req.user.save()
-    res.redirect('/users/dashboard')
+    res.redirect('/dashboard')
 },(error,req,res,next)=>{
     res.status(400).send({error:error.message})
 })
 
-router.get('/avatar',async(req,res)=>{
-    try{
-        const user = await User.findById(req.params.id)
-        if(!user || !user.avatar){
-            throw new Error()
-        }
-        res.set('Content-Type','image/png')
-        res.send(user.avatar)
-    }catch(e){
-        res.sendStatus(404).send()
-    }
-})
-
-router.delete('/avatar',async(req,res)=>{
-    req.user.avatar = undefined
-    await req.user.save()
-    res.send()
-})
+//DeleteImage
+router.get('/deleteImage',userController.deleteImage)
 
 module.exports = router;
 

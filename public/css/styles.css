@@ -1,5 +1,13 @@
 .portrait{
+    background: url('/default.png');
     width: 200px;
     height: 200px;
     border-radius: 50%;
 }
+
+body {
+    background-image: url('/images/bg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }

@@ -34,13 +34,11 @@ const UserSchema = new mongoose.Schema({
       }
     }
   },
-  avatar:{
-    type:Buffer
-  },
-  date: {
-    type: Date,
-    default: Date.now
+  avatar: {
+    type: Buffer
   }
+},{
+  timestamps:true
 });
 
 const User = mongoose.model('User', UserSchema);
