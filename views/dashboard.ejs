@@ -9,18 +9,16 @@
           <i class="fa fa-comments fa-2x"></i>
         </h1>
         <h1 class="text-center  mb-2">AttainU Chat</h1>
-        <h2 class="text-center mt-4">Dashboard</h2>
+        <h2 class="text-center mt-2">Dashboard</h2>
         <div >
           <p style="text-align:center;"><img class="portrait" src="/users/image" alt = ""></p>
          </div>
            <p class="text-center lead mb-2"><b>Welcome <%= user.name %></b></p>
+           <%- include ('./partials/messages') %>
            <a href="/users/logout" class="btn btn-block my-2" style="background-color:rgb(112, 30, 219);color:white;width:auto;height:auto;">Create Chat Room <i class="fa fa-comments fa-1x"></i></a>
            <a href="/users/read" class="btn btn-block my-2" style="background-color:rgb(2, 188, 245);color:white;width:auto;height:auto;">My Account <i class="fa fa-user fa-1x"></i></a>
            <a href="/users/logout" class="btn btn-block my-2" style="background-color:rgb(231, 54, 54);color:white;width:auto;height:auto;">Logout</a>
-            <!-- <a href="/users/update" class="btn btn-info">Update Account</a> -->
-            <!-- <a href="/users/delete" class="btn btn-dark">Delete Account</a> -->
-            <!-- <a href="https://zoom.us/j/4252455938?pwd=NDJZQWl1Zk8yVUxpRVJRT0lOTncyUT09" class="btn btn-link">Join Class</a> -->
-  
+            <p class="text-center mb-2">Made with <span style="color: #e25555;">&#9829;</span> in India</p>
       </div>
     </div>
   </div>

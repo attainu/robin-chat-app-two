@@ -13,9 +13,9 @@ const userControll = {
           errors.push({ msg: 'Passwords do not match' });
         }
       
-        if (password.length < 6) {
-          errors.push({ msg: 'Password must be at least 6 characters' });
-        }
+        // if (password.length < 6) {
+        //   errors.push({ msg: 'Password must be at least 6 characters' });
+        // }
       
         if (errors.length > 0) {
           res.render('signup', { errors, name, email, mobile, password, password2});
@@ -89,9 +89,9 @@ const userControll = {
              return res.status(400).send({error:'Invalid updates!'})
         }
         try{
-      
             await updates.forEach((update)=>req.user[update]=req.body[update])
             req.user.save()
+            req.flash('success_msg', 'Your Details Have Been Updated!');
             res.redirect('/users/read')
         }catch(e){
             res.status(400).send(e)
@@ -106,12 +106,12 @@ const userControll = {
         } catch (e) {
             res.status(400).send(e)
         }
-       
     },
 
     deleteImage: async(req,res) => {
       req.user.avatar = undefined
       await req.user.save()
+      req.flash('success_msg', 'Your Profile Picture Is Deleted');
       res.redirect('/dashboard')
     }
 }

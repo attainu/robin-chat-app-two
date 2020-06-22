@@ -60,6 +60,7 @@ router.post('/avatar', upload.single('avatar'),async(req,res)=>{
 
     req.user.avatar = buffer
     await req.user.save()
+    req.flash('success_msg', 'Your Profile Picture Is Updated');
     res.redirect('/dashboard')
 },(error,req,res,next)=>{
     res.status(400).send({error:error.message})

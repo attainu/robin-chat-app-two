@@ -47,6 +47,7 @@
               class="form-control"
               placeholder="Enter Mobile Number"
               value="<%= typeof mobile != 'undefined' ? mobile : '' %>"
+              minlength="10"
             />
           </div>
           <div class="form-group">
@@ -59,6 +60,7 @@
               placeholder="Create Password"
               value="<%= typeof password != 'undefined' ? password : '' %>"
               required
+              minlength="6"
             />
           </div>
           <div class="form-group">
@@ -71,6 +73,7 @@
               placeholder="Confirm Password"
               value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
               required
+              minlength="6"
             />
           </div>
           <button type="submit" class="btn btn-primary btn-block">
