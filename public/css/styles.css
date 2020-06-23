@@ -1,3 +1,4 @@
+
 /* General Styles */
 
 * {
@@ -197,8 +198,9 @@ button:disabled {
 }
 
 .portrait{
-    width: 170px;
-    height: 150px;
+    background: url('/default.png');
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
 }
 
@@ -212,5 +214,9 @@ body {
     overflow: hidden; 
   }
 
-
-
+/* footer {
+    text-align: center;
+    padding: 3px;
+    background-color: rgb(233, 122, 187);
+    color: white;
+  } */
