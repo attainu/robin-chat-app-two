@@ -22,25 +22,25 @@ beforeEach(async () => {
 // mobile: 9876543210,
 // password: 'MyPass777!'   
 
-test('Should signup a new user', async () => {
-    await request(app).post('/users/signup').send({
-        name: 'Pijush',
-        email: 'pk3332sm@gmail.com',
-        mobile: 1234567890,
-        password: '56what!!'
-    }).expect(302)
-})
+// test('Should signup a new user', async () => {
+//     await request(app).post('/users/signup').send({
+//         name: 'Pijush',
+//         email: 'pk3332sm@gmail.com',
+//         mobile: 1234567890,
+//         password: '56what!!'
+//     }).expect(302)
+// })
 
-test('Should update valid user fields', async () => {
-    await request(app)
-        .post('/users/update')
-        .send({
-            name: 'Said'
-        })
-        .expect(200)
-    const user = await User.findById(userOneId)
-    expect(user.name).toEqual('Said')
-})
+// test('Should update valid user fields', async () => {
+//     await request(app)
+//         .post('/users/update')
+//         .send({
+//             name: 'Said'
+//         })
+//         .expect(200)
+//     const user = await User.findById(userOneId)
+//     expect(user.name).toEqual('Said')
+// })
 
 test('Should login existing user', async () => {
     await request(app).post('/users/login').send({
