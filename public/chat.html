@@ -5,13 +5,10 @@
     <title>Chat App</title>
     <link rel="icon" href="/images/Icon/comment.png">
     <link rel="stylesheet" href="/css/styles.min.css">
-    <!-- <link rel="stylesheet" href="/css/styles.css"> -->
 </head>
-
 <body>
     <div class="chat">
         <div id="sidebar" class="chat__sidebar">
-
         </div>
         <div class="chat__main">
             <div id="messages" class="chat__messages"></div>
@@ -25,14 +22,13 @@
             </div>
         </div>
     </div>
-
     <script id="message-template" type="text/html">
             <div class="message">
                 <p>
                     <span class="message__name">{{username}}</span>
                     <span class="message__meta">{{createdAt}}</span>
                 </p>
-                <p>{{message}}</p>
+                <p><span class="textbox">{{message}}</span></p>
             </div>
         </script>
 
@@ -42,7 +38,7 @@
                     <span class="message__name">{{username}}</span>
                     <span class="message__meta">{{createdAt}}</span>
                 </p>
-                <p><a href="{{url}}" target="_blank">My current location</a></p>
+                <p><a href="{{url}}" target="_blank">My Current Location</a></p>
             </div>
         </script>
 
@@ -51,7 +47,7 @@
         <h2 class="list-title">Users</h2>
         <ul class="users">
             {{#users}}
-              <li>{{username}}</li>
+            <li><img class="portrait2 ml-2" src="/users/image" alt = "" style="vertical-align:middle"><b> {{username}}</b></li>
             {{/users}}
         </ul>
     </script>
@@ -64,5 +60,4 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/chat.js"></script>
 </body>
-
 </html>
