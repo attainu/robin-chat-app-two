@@ -16,7 +16,14 @@ Check Us Out
 
 ## Project Screenshots
 
-![](project.png)
+Main Page
+![](project1.png)
+
+Account Details Page
+![](project2.png)
+
+Chat Page
+![](project3.png)
 
 More Screenshots To Be Added
 
