@@ -199,10 +199,17 @@ button:disabled {
 
 .portrait{
     background: url('/default.png');
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
 }
+
+.avatar {
+    vertical-align: middle;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+  }
 
 body {
     background-image: url('/images/bg.png');

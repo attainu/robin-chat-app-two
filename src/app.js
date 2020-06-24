@@ -1,6 +1,5 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
-const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
@@ -9,15 +8,6 @@ const app = express();
 
 // Passport Config
 require('./middleware/passport')(passport);
-
-// DB Config
-// const db = require('./db/keys').mongoURI;
-
-// // Connect to MongoDB
-// mongoose
-//   .connect(db,{ useNewUrlParser: true , useCreateIndex:true, useUnifiedTopology: true})
-//   .then(() => console.log('MongoDB Connected'))
-//   .catch(err => console.log(err));
 
 // EJS
 app.use(expressLayouts);

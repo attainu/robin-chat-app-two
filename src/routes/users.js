@@ -6,14 +6,14 @@ const userController = require('../controller/controllers')
 const { forwardAuthenticated ,ensureAuthenticated} = require('../middleware/auth');
 const { authenticate } = require('passport');
 
-// Login Page
-router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
-
 // Signup Page
 router.get('/signup', forwardAuthenticated, (req, res) => res.render('signup'));
 
 // Signup
 router.post('/signup', userController.signup);
+
+// Login Page
+router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 
 // Login
 router.post('/login', userController.login);
