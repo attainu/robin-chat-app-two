@@ -14,21 +14,6 @@ Check Us Out
 
 ---
 
-## Project Screenshots
-
-Main Page
-<!-- ![](project1.png) -->
-
-Account Details Page
-<!-- ![](project2.png) -->
-
-Chat Page
-<!-- ![](project3.png) -->
-
-More Screenshots To Be Added
-
----
-
 ## Requirements
 
 For development, you will only need Node.js and a node global package, Yarn, installed in your environement.
@@ -122,4 +107,20 @@ Open `robin-chat-app-two\config` then create and dev.env file and edit it with y
 
 - socket.io - 
 
-- validator
+- validator - 
+
+
+---
+
+## Project Screenshots
+
+Main Page
+<!-- ![](project1.png) -->
+
+Account Details Page
+<!-- ![](project2.png) -->
+
+Chat Page
+<!-- ![](project3.png) -->
+
+Screenshots To Be Added
