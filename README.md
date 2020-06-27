@@ -114,7 +114,7 @@ Open `robin-chat-app-two\config` then create and dev.env file and edit it with y
 
 ## Project Demo Website Hosted On Heroku -
 
-#### Visit Here [AttainU Chat](https://attainu-chatapp.herokuapp.com/)
+#### Visit Here [AttainU Chat](https://attainu-chatapp.herokuapp.com/)(/public/images/Icon/logo.png)
 
 ## Project Screenshots
 
