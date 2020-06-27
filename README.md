@@ -75,7 +75,7 @@ Open `robin-chat-app-two\config` then create and dev.env file and edit it with y
 ```
 
 
-## The node modules that have been used -
+## NPM Packages Used -
 
 - @sendgrid/mail - It’s Mail Service npm for the SendGrid v3 Web Email API. We used it to send signup emails and account deletion emails to the users. You can find it out here - [@sendgrid/mail](https://www.npmjs.com/package/@sendgrid/mail)
 
@@ -111,6 +111,10 @@ Open `robin-chat-app-two\config` then create and dev.env file and edit it with y
 
 
 ---
+
+## Project Demo Website Hosted On Heroku -
+
+#### Visit Here [AttainU Chat](https://attainu-chatapp.herokuapp.com/)
 
 ## Project Screenshots
 
