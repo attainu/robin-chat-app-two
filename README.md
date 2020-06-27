@@ -17,13 +17,13 @@ Check Us Out
 ## Project Screenshots
 
 Main Page
-![](project1.png)
+<!-- ![](project1.png) -->
 
 Account Details Page
-![](project2.png)
+<!-- ![](project2.png) -->
 
 Chat Page
-![](project3.png)
+<!-- ![](project3.png) -->
 
 More Screenshots To Be Added
 
@@ -76,10 +76,10 @@ If the installation was successful, you should be able to run the following comm
 Open `robin-chat-app-two\config` then create and dev.env file and edit it with your infos. You will need:
 
 - PORT=`Your Desired Port`
-- NAME=`Your MongoDB UserName`:
+- NAME=`Your Database UserName`:
 - PASSWORD=`Your MongoDB Password`
 - CLUSTER=`@Your MongoDB Cluster Address`
-- SENDGRID_API_KEY=`Enter Your SendGrid Email API`
+- SENDGRID_API_KEY=`Enter Your SendGrid Email API Register On Sendgrid`
 
 ---
 
@@ -88,3 +88,38 @@ Open `robin-chat-app-two\config` then create and dev.env file and edit it with y
 ```sh
     $ npm run dev
 ```
+
+
+## The node modules that have been used -
+
+- @sendgrid/mail - It’s Mail Service npm for the SendGrid v3 Web Email API. We used it to send signup emails and account deletion emails to the users. You can find it out here - [@sendgrid/mail](https://www.npmjs.com/package/@sendgrid/mail)
+
+- bad-words - It is a javascript filter for bad words. It’s an npm module that you can find it out here at [bad-words](https://www.npmjs.com/package/bad-words). We have used this to add as a profanity filter in our chat room, to save our users from abuses/hatered of any sort inside the chat room.
+
+- bcryptjs - We are using bcrypt.js module to hash password of the user.
+
+- connect-flash": "^0.1.1",
+
+- ejs - This is the view engine we used.
+
+- express -
+
+- express-ejs-layouts - 
+
+- express-session - 
+
+- mongoose - We used Mongoose because it provides schema-based solution to model our application data. Which has many features to use example - validation of user's data.
+
+- multer - 
+
+- npm - 
+
+- passport - 
+
+- passport-local - 
+
+- sharp - 
+
+- socket.io - 
+
+- validator
