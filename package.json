@@ -1,5 +1,5 @@
 {
-  "name": "backend-project",
+  "name": "attainu-chat",
   "version": "1.0.0",
   "description": "This is a chat app crud using Node.js, Express, Passport, Mongoose, EJS and some other packages.",
   "main": "index.js",
@@ -12,7 +12,7 @@
     "testEnvironment": "node"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pijush Konar & Saidul Mondal",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.2.0",
