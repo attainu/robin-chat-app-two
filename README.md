@@ -124,7 +124,7 @@ Open `robin-chat-app-two\config` then create and dev.env file and edit it with y
 - ##### `socket.io` - We used Socket.IO as it enables real-time bidirectional event-based communication. For more details check here [socket.io](https://www.npmjs.com/package/socket.io).
 
 
-- ##### `validator` - We used validator to vadidate user data for example - user's entered email address. For more details check here [validator](https://www.npmjs.com/package/validator).
+- ##### `validator` - We used validator to validate user data for example - user's entered email address. For more details check here [validator](https://www.npmjs.com/package/validator).
 
 ---
 
