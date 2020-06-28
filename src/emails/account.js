@@ -2,7 +2,7 @@ const sgMail = require('@sendgrid/mail')
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-const sendWelcomeMail = (email,name)=>{
+const sendWelcomeMail = (email,name) => {
     sgMail.send({
         to:email,
         from:'attainuchatapp@gmail.com',
@@ -11,7 +11,7 @@ const sendWelcomeMail = (email,name)=>{
     })
 }
 
-const sendGoodbyMail = (email,name)=>{
+const sendGoodbyMail = (email,name) => {
     sgMail.send({
         to:email,
         from:'attainuchatapp@gmail.com',

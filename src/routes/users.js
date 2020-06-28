@@ -4,7 +4,6 @@ const sharp = require('sharp')
 const router = express.Router();
 const userController = require('../controller/controllers')
 const { forwardAuthenticated ,ensureAuthenticated} = require('../middleware/auth');
-const { authenticate } = require('passport');
 
 // Signup Page
 router.get('/signup', forwardAuthenticated, (req, res) => res.render('signup'));
@@ -51,7 +50,7 @@ const upload = multer({
     limits:{
         fileSize:10000000
     },
-    fileFilter(req,file,cb){
+    fileFilter(req,file,cb) {
         if(!file.originalname.match(/\.(jpg|jpeg|png)$/)){
             return cb(new Error('Please upload jpg,jpeg or png file only!'))
         }
@@ -59,14 +58,14 @@ const upload = multer({
     }
 })
 
-router.post('/avatar', upload.single('avatar'),async(req,res)=>{
+router.post('/avatar', upload.single('avatar'), async(req,res) => {
     const buffer = await sharp(req.file.buffer).resize({width:250,height:250}).png().toBuffer()
 
     req.user.avatar = buffer
     await req.user.save()
     req.flash('success_msg', 'Your Profile Picture Is Updated');
     res.redirect('/dashboard')
-},(error,req,res,next)=>{
+},(error,req,res,next) => {
     res.status(400).send({error:error.message})
 })
 
