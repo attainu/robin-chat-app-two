@@ -14,7 +14,7 @@ listing music from Spotify.
 
 👤 **Pijush Konar**
 
-- Github: [@pijush-konar-au7](https://github.com/pijush-konar-au7)
+- Github: [@pijushkonar](https://github.com/pijushkonar)
 
 👤 **Saidul Mondal**
 
@@ -171,6 +171,6 @@ Open `robin-chat-app-two\config` then create and dev.env file and edit it with y
  
  ## 📝 License
 
-Copyright © 2020 [Pijush Konar](https://github.com/pijush-konar-au7) & [Saidul Mondal](https://github.com/saidul-mondal-au7).
+Copyright © 2020 [Pijush Konar](https://github.com/pijushkonar) & [Saidul Mondal](https://github.com/saidul-mondal-au7).
 
 ---
